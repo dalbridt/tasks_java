@@ -48,30 +48,30 @@ class OldPhone {
            }
            String string = String.valueOf(currentCombination);
            System.out.println(string);
-           combinationArrayIndexes = generateIndex(combinationArrayIndexes); 
+           combinationArrayIndexes = generateIndex(combinationArrayIndexes, 3); 
             poop ++;
         }
        
         return combinations;
     }
 
-    public static int [] generateIndex( int [] array) {
+    public static int [] generateIndex(int [] array, int lettersAmount ) {
         boolean stop = false; 
         while (stop == false) {
             for (int i = array.length - 1; i >= 0; i--) {
-                if (array[i] < array.length - 1) {
+                if (array[i] < lettersAmount) {
                     array[i]++;
                     return array; 
-                } else if (array[i] == array.length - 1 && array[i - 1] < array.length - 1) {
+                } else if (array[i] == lettersAmount && array[i - 1] < lettersAmount) {
                     array[i] = 0;
                     array[i - 1]++;
                     return array;
-                } else if (array[i] == array.length - 1 || array[i - 1] == array.length - 1) {
+                } else if (array[i] == lettersAmount || array[i - 1] == lettersAmount) {
                     array[i] = 0;
                     continue; 
                 } 
             }
-            if(array[0] == array.length -1){
+            if(array[0] == lettersAmount){
                 int total = 0; 
                 for (int k = 0; k < array.length; k++) {
                     total += array [k];  
